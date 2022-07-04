@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "labour",
-    "public": "dist/labour",
+    "public": "docs",
     "ignore": [
       "**/.*"
     ],
