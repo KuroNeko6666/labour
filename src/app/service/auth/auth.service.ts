@@ -59,7 +59,7 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('keyToken');
-    window.location.reload();
+    this.router.navigate(['/login']);
   }
 
   checkToken(){
