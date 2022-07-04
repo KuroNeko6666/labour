@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="h-100">
+  <mat-card fxLayout="column" fxLayoutAlign="center stretch" class="w-50 p-4">
+    <mat-card-title>MASUK</mat-card-title>
+    <mat-card-subtitle>Ayo Terus update CV mu!</mat-card-subtitle>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="5px">
+
+      <mat-form-field appearance="outline" class="m-0">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="auth.email">
+        <mat-error *ngIf="auth.email.hasError('required')">Email harus diisi!</mat-error>
+        <mat-error *ngIf="auth.email.hasError('email')">Email tidak valid!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="m-0">
+        <mat-label>Password</mat-label>
+        <input matInput [formControl]="auth.password" [type]="auth.hide? 'password':'text'">
+        <button mat-icon-button matSuffix (click)="auth.hide = !auth.hide">
+          <mat-icon>{{auth.hide? 'visibility' : 'visibility_off'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="auth.password.hasError('required')">Password harus diisi!</mat-error>
+        <mat-error *ngIf="auth.password.hasError('minlength')">Minimal 6 karakter!</mat-error>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="end center" class="mb-2">
+        <button mat-button color="primary" routerLink="/forgot">Lupa password</button>
+      </div>
+      <button mat-raised-button color="primary" (click)="auth.login()"
+      [disabled]="auth.password.invalid || auth.email.invalid || auth.loading">{{auth.loading? 'Tunggu..' : 'MASUK'}}</button>
+      <button mat-button color="primary" routerLink="/register">DAFTAR</button>
+    </mat-card-content>
+  </mat-card>
+</div>

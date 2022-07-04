@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "labour-development": {
+      "hosting": {
+        "labour": [
+          "labour-development"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "labour-development"
+  }
+}

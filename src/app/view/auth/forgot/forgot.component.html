@@ -1,0 +1,18 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="h-100">
+  <mat-card fxLayout="column" fxLayoutAlign="center stretch" class="w-50 p-4">
+    <mat-card-title>LUPA PASSWORD</mat-card-title>
+    <mat-card-subtitle>Ayo Terus update CV mu!</mat-card-subtitle>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="5px">
+
+      <mat-form-field appearance="outline" class="m-0">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="auth.email">
+        <mat-error *ngIf="auth.email.hasError('required')">Email harus diisi!</mat-error>
+        <mat-error *ngIf="auth.email.hasError('email')">Email tidak valid!</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="auth.loading || auth.email.invalid">{{auth.loading?'Tunggu...':'MASUK'}}</button>
+      <button mat-button color="primary" routerLink="/login">BATAL</button>
+    </mat-card-content>
+  </mat-card>
+</div>
